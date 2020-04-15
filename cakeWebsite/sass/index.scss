@@ -1,0 +1,234 @@
+$bg-color: #FFC6FB;
+$accent-color: #CF156F;
+$hover-color: #F597C4;
+$font-bold: 900;
+$font-normal: 400;
+$font-stack-main: 'Lobster', cursive;
+$font-stack-text: 'Questrial', sans-serif;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: $bg-color;
+  font-family: $font-stack-main;
+}
+
+.logo {
+  margin: 0;
+}
+/* ===========================
+    Navbar styling
+   ===========================
+*/
+
+header {
+  background: $bg-color;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 40;
+}
+
+.logo {
+  color: $accent-color;
+  font-weight: $font-bold;
+}
+
+.nav-toggle {
+  display: none;
+  transition: 1s;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 8px;
+  padding: 0.5rem;
+  display: block;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  position: relative;
+  background: $accent-color;
+  height: 2px;
+  width: 1em;
+}
+
+.nav-toggle-label span::before {
+  position: absolute;
+  content: '';
+  top: 5px;
+}
+
+.nav-toggle-label span::after {
+  position: absolute;
+  content: '';
+  bottom: 5px;
+}
+
+nav {
+  position: absolute;
+  background: $bg-color;
+  width: 100%;
+  font-family: $font-stack-text;
+  /* Scale(1,0) means to keep width at 1(100%) and the
+     height at 0 so it's hidden starting out;
+     This code in lieu of a display: none and display: block toggle
+  */
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 500ms ease-in-out;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  li {
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  a {
+    color: $accent-color;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  a:hover {
+    color: $hover-color;
+  }
+}
+
+/*
+  If the nav toggle is checked and there is any preceeding nav sibling
+*/
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.my-page-section1 {
+  height: 100%;
+  background-color: $bg-color;
+  background: url("./../images/bg4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+}
+
+.title {
+  margin: 10rem auto;
+}
+
+.intro, .cakes {
+  font-family: $font-stack-text;
+}
+
+.intro img, .cakes img, .product-main img {
+  width: 50%;
+}
+
+
+.my-page-section2 {
+  height: 100%;
+  background-color: $bg-color;
+  background: url("./../images/bg1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Need this to prevent scrolling with background
+     rolling behind the navbar
+  */
+  display: grid;
+  place-items: center;
+}
+
+@media (min-width: 600px) {
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    /* 1fr == fraction of available space/% of avail space
+       below makes four columns
+         1. One leftover space on the left side of page
+         2. Auto the next column which is the logo
+         3. minmax(min, max)
+         4. One leftover space on the right of webpage
+
+    */
+    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2/3;
+  }
+
+  nav {
+    grid-column: 3/4;
+    all: unset;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: $font-stack-text;
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      margin: 5px 10px;
+    }
+    a {
+      opacity: 1;
+    }
+  }
+  .my-page-section1 {
+    height: 100%;
+    background-color: $bg-color;
+    background: url("./../images/bg4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Need this to prevent scrolling with background
+       rolling behind the navbar
+    */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+  }
+
+  .title {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+
+  .intro {
+    grid-row: 1/3;
+    grid-column: -3/-2;
+    align-items: center;
+    img {
+
+    }
+  }
+
+}
