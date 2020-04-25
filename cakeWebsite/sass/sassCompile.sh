@@ -6,17 +6,17 @@
 MY_FILE="index.scss"
 MY_OUTPUT_FILE="../css/index.css"
 TIMESTAMP=$(ls -lc $MY_FILE)
-CHECK_DURATION=10
+CHECK_DURATION=5
 
-#echo $TIMESTAMP 
+#echo $TIMESTAMP
 
-while : 
+while :
 do
 	CURRENT_TIMESTAMP=$(ls -lc $MY_FILE)
 	#echo "THE CURRENT TIMESTAMP: $CURRENT_TIMESTAMP"
 
 	if [[ $TIMESTAMP != $CURRENT_TIMESTAMP ]]; then
-		
+
 		#echo "File has changed. Recompiling $MY_FILE"
 
 		#File has changed, run SASS commmand

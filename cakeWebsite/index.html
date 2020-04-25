@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/index.css">
   <title>Cake Website Mockup</title>
 </head>
@@ -16,35 +16,61 @@
     <input type="checkbox" class="nav-toggle" id="nav-toggle">
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Merchandise</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#merch">Merchandise</a></li>
+        <li><a href="#contact">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
     <label for="nav-toggle" class="nav-toggle-label">
       <span class="hamburger"></span>
     </label>
   </header>
-  <div class="my-page-section1">
-    <h2 class="title">We take the cake.</h2>
+  <div class="my-page-section1" id="home">
     <section class="intro">
-      <p></p>
+      <img src="./images/cake1.jpg" alt="Cake Photo 1" title="Photo by Annie Spratt on Unsplash" class="intro-img">
+      <h2 class="title"></h2>
+      <p class="intro-p"><span class="title">We take the cake.</span></br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </br></br>
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
     </section>
 
-    <section class="product-main">
-      <p></p>
-    </section>
   </div>
 
-  <div class="my-page-section2">
+  <div class="my-page-section2" id="shop">
+    <div class="container" data-cake-images></div>
+  </div>
+
+  <template data-cake-images-template>
+    <div class="cake">
+      <img class="cake-image" data-cake-img>
+      <p class="cake-info" data-cake-info></p>
+      <button class="cake-button">Add To Cart</button>
+    </div>
+  </template>
+
+  <div class="my-page-section3" id="merch">
+    <div class="container-merch" data-merch-images></div>
+  </div>
+
+  <template data-merch-images-template>
+    <div class="merch">
+      <img class="merch-image" data-merch-img>
+      <p class="merch-info" data-cake-info></p>
+      <button class="merch-button">Add To Cart</button>
+    </div>
+  </template>
+
+  <div class="footer" id="contact">
     <section class="cakes">
       <p></p>
     </section>
   </div>
-
   <script src="./scripts/index.js"></script>
-  </body>
+</body>
 
 </html>

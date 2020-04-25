@@ -6,7 +6,9 @@ $font-normal: 400;
 $font-stack-main: 'Lobster', cursive;
 $font-stack-text: 'Questrial', sans-serif;
 
-*, *::before, *::after {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -32,6 +34,13 @@ header {
   z-index: 40;
 }
 
+.title,
+h1,
+h2,
+h3 {
+  font-family: $font-stack-main;
+}
+
 .logo {
   color: $accent-color;
   font-weight: $font-bold;
@@ -50,8 +59,8 @@ header {
 }
 
 .nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
+.nav-toggle-label span::after,
+.nav-toggle-label span::before {
   display: block;
   position: relative;
   background: $accent-color;
@@ -108,7 +117,6 @@ nav {
     color: $hover-color;
   }
 }
-
 /*
   If the nav toggle is checked and there is any preceeding nav sibling
 */
@@ -122,44 +130,69 @@ nav {
 }
 
 .my-page-section1 {
+  display: relative;
   height: 100%;
   background-color: $bg-color;
   background: url("./../images/bg4.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: grid;
-  justify-content: center;
 }
 
-.title {
-  margin: 10rem auto;
-}
+.title {}
 
-.intro, .cakes {
+.intro {
   font-family: $font-stack-text;
-}
 
-.intro img, .cakes img, .product-main img {
-  width: 50%;
-}
+  .intro-img {
+    width: 70%;
+    margin: 60px 50px 0;
+  }
 
+  .intro-p {
+    font-size: 1rem;
+  }
+}
 
 .my-page-section2 {
-  height: 100%;
   background-color: $bg-color;
-  background: url("./../images/bg1.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* Need this to prevent scrolling with background
-     rolling behind the navbar
-  */
-  display: grid;
-  place-items: center;
-}
+  display: block;
+  margin: 5rem;
 
+  .container {}
+
+  .cake {
+    margin: 0 auto;
+  }
+
+  .cake-image {
+    height: 200px;
+    width: 200px;
+  }
+
+  .cake-info {
+    max-width: 200px;
+    font-family: $font-stack-text;
+    font-size: 0.5rem;
+  }
+
+  .cake-button {
+    font-family: $font-stack-text;
+    background: $bg-color;
+    border-radius: 5%;
+  }
+}
+/*
+  ==================================================================
+  Large displays
+  ==================================================================
+*/
 @media (min-width: 600px) {
+  body {
+    margin: 0;
+    background-color: $bg-color;
+    font-family: $font-stack-main;
+  }
 
   .nav-toggle-label {
     display: none;
@@ -186,7 +219,7 @@ nav {
     grid-column: 3/4;
     all: unset;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     font-family: $font-stack-text;
 
@@ -197,10 +230,12 @@ nav {
     li {
       margin: 5px 10px;
     }
+
     a {
       opacity: 1;
     }
   }
+
   .my-page-section1 {
     height: 100%;
     background-color: $bg-color;
@@ -208,27 +243,73 @@ nav {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: grid;
+  }
+
+  .intro {
     /* Need this to prevent scrolling with background
        rolling behind the navbar
     */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 600px 1fr;
+    grid-template-rows: 300px 1fr;
     align-items: center;
-  }
 
-  .title {
-    grid-row: 1/2;
-    grid-column: 2/3;
-  }
+    .title {
+      margin: 0 auto;
+      font-size: 2.6rem;
+    }
 
-  .intro {
-    grid-row: 1/3;
-    grid-column: -3/-2;
-    align-items: center;
-    img {
+    .intro-img {
+      width: 80%;
+      margin: 0 auto;
+      grid-column: 1/2;
+      grid-row: 1/3;
+    }
 
+    .intro-p {
+      margin: 0 auto;
+      grid-column: 2/-1;
+      grid-row: 1/3;
+      max-width: 500px;
+      text-align: justify;
+      font-size: 1rem;
     }
   }
 
+  .my-page-section2 {
+    background-color: $bg-color;
+    display: inline;
+    justify-content: center;
+    margin: 5rem;
+
+    .container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-gap: 2rem;
+    }
+
+    .cake {
+      margin: 0 auto;
+    }
+
+    .cake-image {
+      height: 200px;
+      width: 200px;
+    }
+
+    .cake-info {
+      text-align: center;
+      max-width: 200px;
+      font-family: $font-stack-text;
+      font-size: 0.5rem;
+    }
+
+    .cake-button {
+      margin: 0 auto;
+      font-family: $font-stack-text;
+      background: $bg-color;
+      border-radius: 5%;
+    }
+  }
 }
