@@ -6,7 +6,7 @@
 MY_FILE="index.scss"
 MY_OUTPUT_FILE="../css/index.css"
 TIMESTAMP=$(ls -lc $MY_FILE)
-CHECK_DURATION=5
+CHECK_DURATION=6
 
 #echo $TIMESTAMP
 
@@ -17,7 +17,7 @@ do
 
 	if [[ $TIMESTAMP != $CURRENT_TIMESTAMP ]]; then
 
-		#echo "File has changed. Recompiling $MY_FILE"
+		echo "File has changed. Recompiling $MY_FILE"
 
 		#File has changed, run SASS commmand
 		sass $MY_FILE $MY_OUTPUT_FILE
